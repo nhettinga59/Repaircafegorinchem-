@@ -6,7 +6,7 @@ Website van Repair Café Gorinchem — elke 1e zaterdag van de maand, 10:00–12
 
 Eén statische pagina: [`index.html`](index.html).
 
-- **Styling:** Tailwind CSS via CDN, met eigen kleuren `brand` (groen) en `amberWood` (amber)
+- **Styling:** Tailwind CSS via CDN, met eigen kleuren `brand` (indigo `#2D2E82`) en `amberWood` (oranje `#ED6A42`), naar de huisstijl van repaircafe.org
 - **Iconen:** Font Awesome 6
 - **Lettertype:** Roboto (Google Fonts)
 - **JavaScript:** berekent automatisch de eerstvolgende drie bijeenkomsten (1e zaterdag van de maand), plus het mobiele menu, de zoektool "Wat kun je meenemen?", het event-schema voor Google en het versturen van de formulieren
