@@ -4,8 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Repair Café Gorinchem | Samen repareren, duurzaam & gezellig</title>
+    <meta name="description" content="Repair Café Gorinchem: elke 1e zaterdag van de maand van 10:00 tot 12:00 uur repareren we samen kapotte spullen in Buurtkamer Stalkaarsen. Gratis toegankelijk.">
+    <link rel="canonical" href="https://repaircafegorinchem.nl/">
+    <meta name="theme-color" content="#2d2e82">
     <link rel="icon" type="image/png" href="img/favicon.png">
     <link rel="apple-touch-icon" href="img/favicon.png">
+
+    <!-- Delen op social media (Open Graph) -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="nl_NL">
+    <meta property="og:site_name" content="Repair Café Gorinchem">
+    <meta property="og:url" content="https://repaircafegorinchem.nl/">
+    <meta property="og:title" content="Repair Café Gorinchem | Samen repareren, duurzaam & gezellig">
+    <meta property="og:description" content="Elke 1e zaterdag van de maand van 10:00 tot 12:00 uur repareren we samen kapotte spullen in Buurtkamer Stalkaarsen, Gorinchem. Gratis toegankelijk.">
+    <meta property="og:image" content="https://repaircafegorinchem.nl/img/share-16x9.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="675">
+    <meta property="og:image:alt" content="Repair Café Gorinchem - samen repareren, elke 1e zaterdag van de maand">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Structured data: organisatie en website (de bijeenkomsten worden onderaan via JavaScript toegevoegd) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "WebSite",
+                "@id": "https://repaircafegorinchem.nl/#website",
+                "name": "Repair Café Gorinchem",
+                "url": "https://repaircafegorinchem.nl/",
+                "inLanguage": "nl-NL"
+            },
+            {
+                "@type": "Organization",
+                "@id": "https://repaircafegorinchem.nl/#organization",
+                "name": "Repair Café Gorinchem",
+                "url": "https://repaircafegorinchem.nl/",
+                "logo": "https://repaircafegorinchem.nl/img/favicon.png",
+                "image": "https://repaircafegorinchem.nl/img/share-1x1.png",
+                "email": "repaircafegorinchem@outlook.com",
+                "description": "Buurtinitiatief in Gorinchem waar vrijwilligers samen met bezoekers kapotte spullen repareren.",
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "Dr. Hiemstralaan 77",
+                    "postalCode": "4205 KK",
+                    "addressLocality": "Gorinchem",
+                    "addressCountry": "NL"
+                },
+                "memberOf": {
+                    "@type": "Organization",
+                    "name": "Repair Café International",
+                    "url": "https://www.repaircafe.org/"
+                }
+            }
+        ]
+    }
+    </script>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome Icons -->
@@ -807,6 +861,76 @@
             return d;
         }
 
+        // Event-schema (structured data) voor Google: de komende 6 bijeenkomsten, elk als los Event
+        function addEventStructuredData() {
+            const today = new Date();
+            let year = today.getFullYear();
+            let month = today.getMonth();
+            const firstThisMonth = getFirstSaturdayOf(year, month);
+            firstThisMonth.setHours(12, 0, 0, 0);
+            if (today > firstThisMonth) {
+                month++;
+                if (month > 11) { month = 0; year++; }
+            }
+
+            const pad = n => String(n).padStart(2, '0');
+            const events = [];
+            for (let i = 0; i < 6; i++) {
+                const sat = getFirstSaturdayOf(year, month);
+                const day = `${sat.getFullYear()}-${pad(sat.getMonth() + 1)}-${pad(sat.getDate())}`;
+                // Nederlandse tijd: zomertijd (+02:00) van april t/m oktober, anders wintertijd (+01:00)
+                const offset = (sat.getMonth() >= 3 && sat.getMonth() <= 9) ? '+02:00' : '+01:00';
+                events.push({
+                    '@type': 'Event',
+                    'name': 'Repair Café Gorinchem',
+                    'description': 'Kapotte spullen? Neem ze mee naar Repair Café Gorinchem en repareer ze samen met onze vrijwillige reparateurs. Gratis toegankelijk, inloop tot 11:30 uur.',
+                    'startDate': `${day}T10:00:00${offset}`,
+                    'endDate': `${day}T12:00:00${offset}`,
+                    'eventStatus': 'https://schema.org/EventScheduled',
+                    'eventAttendanceMode': 'https://schema.org/OfflineEventAttendanceMode',
+                    'isAccessibleForFree': true,
+                    'inLanguage': 'nl-NL',
+                    'url': 'https://repaircafegorinchem.nl/#bijeenkomsten',
+                    'image': [
+                        'https://repaircafegorinchem.nl/img/share-16x9.png',
+                        'https://repaircafegorinchem.nl/img/share-4x3.png',
+                        'https://repaircafegorinchem.nl/img/share-1x1.png'
+                    ],
+                    'location': {
+                        '@type': 'Place',
+                        'name': 'Buurtkamer Stalkaarsen',
+                        'address': {
+                            '@type': 'PostalAddress',
+                            'streetAddress': 'Dr. Hiemstralaan 77',
+                            'postalCode': '4205 KK',
+                            'addressLocality': 'Gorinchem',
+                            'addressCountry': 'NL'
+                        }
+                    },
+                    'organizer': {
+                        '@type': 'Organization',
+                        'name': 'Repair Café Gorinchem',
+                        'url': 'https://repaircafegorinchem.nl/'
+                    },
+                    'offers': {
+                        '@type': 'Offer',
+                        'price': '0',
+                        'priceCurrency': 'EUR',
+                        'availability': 'https://schema.org/InStock',
+                        'url': 'https://repaircafegorinchem.nl/#bijeenkomsten'
+                    }
+                });
+                month++;
+                if (month > 11) { month = 0; year++; }
+            }
+
+            const script = document.createElement('script');
+            script.type = 'application/ld+json';
+            script.id = 'event-structured-data';
+            script.textContent = JSON.stringify({ '@context': 'https://schema.org', '@graph': events });
+            document.head.appendChild(script);
+        }
+
         // Automatisch berekenen van de eerstvolgende 3 bijeenkomsten op de 1e zaterdag van de maand
         function updateUpcomingDates() {
             const today = new Date();
@@ -877,6 +1001,7 @@
 
         document.addEventListener('DOMContentLoaded', function() {
             updateUpcomingDates();
+            addEventStructuredData();
 
             // Mobile Menu Toggle
             const mobileBtn = document.getElementById('mobile-menu-btn');
