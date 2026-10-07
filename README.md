@@ -18,3 +18,11 @@ Open `index.html` in je browser. Er is geen build-stap nodig.
 ## Formulieren
 
 Het vrijwilligers- en contactformulier versturen via [FormSubmit](https://formsubmit.co) (gratis, geen account) naar `repaircafegorinchem@outlook.com`. Bij de allereerste inzending stuurt FormSubmit een activatiemail naar dat adres; pas na het klikken op "Activate Form" komen inzendingen binnen. Een onzichtbaar honeypot-veld (`_honey`) houdt simpele spambots tegen.
+
+## Toegankelijkheid
+
+De site is getest tegen WCAG 2.2 niveau AA met [axe-core](https://github.com/dequelabs/axe-core) (desktop, mobiel met open menu, alle meldingen van zoektool en formulieren, 320px breed) plus handmatige toetsenbordtest. Aandachtspunten bij wijzigingen:
+
+- Oranje (`amberWood-500`) knoppen altijd met donkere tekst (`text-brand-950`/`text-slate-950`); wit op oranje haalt het contrast niet.
+- Decoratieve iconen krijgen `aria-hidden="true"`; koppen in volgorde (h1 → h2 → h3).
+- Links die in een nieuw venster openen krijgen `<span class="sr-only"> (opent in een nieuw venster)</span>`.
