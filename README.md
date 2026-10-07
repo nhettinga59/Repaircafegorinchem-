@@ -8,7 +8,7 @@ Eén statische pagina: [`index.html`](index.html).
 
 - **Styling:** Tailwind CSS via CDN, met eigen kleuren `brand` (groen) en `amberWood` (amber)
 - **Iconen:** Font Awesome 6
-- **Lettertype:** Inter (Google Fonts)
+- **Lettertype:** Roboto (Google Fonts)
 - **JavaScript:** berekent automatisch de eerstvolgende drie bijeenkomsten (1e zaterdag van de maand), plus het mobiele menu, de zoektool "Wat kun je meenemen?" en de formulieren
 
 ## Lokaal bekijken
