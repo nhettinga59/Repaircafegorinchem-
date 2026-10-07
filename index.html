@@ -24,6 +24,7 @@
                             700: '#15803d',
                             800: '#166534',
                             900: '#14532d',
+                            950: '#052e16',
                         },
                         amberWood: {
                             100: '#fef3c7',
@@ -50,29 +51,24 @@
 <body class="bg-slate-50 text-slate-800 font-sans flex flex-col min-h-screen selection:bg-brand-500 selection:text-white">
 
     <!-- HEADER & NAVIGATION -->
-    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm transition-all duration-300">
+    <header class="sticky top-0 z-50 bg-brand-950/95 backdrop-blur-md border-b border-brand-900 shadow-sm transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
 
                 <!-- Logo -->
-                <a href="#home" class="flex items-center gap-3 group">
-                    <div class="w-12 h-12 rounded-xl bg-brand-700 text-white flex items-center justify-center shadow-md group-hover:bg-brand-600 transition-colors">
-                        <i class="fa-solid fa-screwdriver-wrench text-xl"></i>
-                    </div>
-                    <div>
-                        <span class="text-xl font-bold tracking-tight text-slate-900 block leading-tight">Repair Café</span>
-                        <span class="text-xs font-semibold text-brand-700 uppercase tracking-widest block">Gorinchem</span>
-                    </div>
+                <a href="#home" class="flex flex-col items-start gap-1.5 group" aria-label="Repair Café Gorinchem - naar boven">
+                    <img src="img/logo-repair-cafe.png" alt="Repair Café" class="h-6 sm:h-7 w-auto group-hover:opacity-90 transition-opacity">
+                    <span class="text-xs font-semibold text-brand-100 uppercase tracking-[0.3em] block leading-none">Gorinchem</span>
                 </a>
 
                 <!-- Desktop Navigation -->
-                <nav class="hidden md:flex items-center space-x-1 lg:space-x-6 text-sm font-medium text-slate-700">
-                    <a href="#home" class="px-3 py-2 rounded-lg hover:text-brand-700 hover:bg-brand-50 transition-colors">Home</a>
-                    <a href="#over-ons" class="px-3 py-2 rounded-lg hover:text-brand-700 hover:bg-brand-50 transition-colors">Over Ons</a>
-                    <a href="#bijeenkomsten" class="px-3 py-2 rounded-lg hover:text-brand-700 hover:bg-brand-50 transition-colors">Bijeenkomsten</a>
-                    <a href="#wat-wij-repareren" class="px-3 py-2 rounded-lg hover:text-brand-700 hover:bg-brand-50 transition-colors">Wat Wij Repareren</a>
-                    <a href="#vrijwilligers" class="px-3 py-2 rounded-lg hover:text-brand-700 hover:bg-brand-50 transition-colors">Vrijwilligers</a>
-                    <a href="#contact" class="px-3 py-2 rounded-lg hover:text-brand-700 hover:bg-brand-50 transition-colors">Contact</a>
+                <nav class="hidden md:flex items-center space-x-1 lg:space-x-6 text-sm font-medium text-brand-50">
+                    <a href="#home" class="px-3 py-2 rounded-lg hover:text-white hover:bg-white/10 transition-colors">Home</a>
+                    <a href="#over-ons" class="px-3 py-2 rounded-lg hover:text-white hover:bg-white/10 transition-colors">Over Ons</a>
+                    <a href="#bijeenkomsten" class="px-3 py-2 rounded-lg hover:text-white hover:bg-white/10 transition-colors">Bijeenkomsten</a>
+                    <a href="#wat-wij-repareren" class="px-3 py-2 rounded-lg hover:text-white hover:bg-white/10 transition-colors">Wat Wij Repareren</a>
+                    <a href="#vrijwilligers" class="px-3 py-2 rounded-lg hover:text-white hover:bg-white/10 transition-colors">Vrijwilligers</a>
+                    <a href="#contact" class="px-3 py-2 rounded-lg hover:text-white hover:bg-white/10 transition-colors">Contact</a>
                 </nav>
 
                 <!-- Action Button Desktop -->
@@ -85,7 +81,7 @@
 
                 <!-- Mobile menu button -->
                 <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" type="button" class="text-slate-600 hover:text-slate-900 p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500" aria-label="Open menu">
+                    <button id="mobile-menu-btn" type="button" class="text-brand-50 hover:text-white p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500" aria-label="Open menu">
                         <i class="fa-solid fa-bars text-2xl" id="menu-icon"></i>
                     </button>
                 </div>
@@ -93,13 +89,13 @@
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-2 shadow-lg">
-            <a href="#home" class="mobile-link block px-3 py-2.5 rounded-lg text-base font-medium text-slate-700 hover:bg-brand-50 hover:text-brand-700">Home</a>
-            <a href="#over-ons" class="mobile-link block px-3 py-2.5 rounded-lg text-base font-medium text-slate-700 hover:bg-brand-50 hover:text-brand-700">Over Ons</a>
-            <a href="#bijeenkomsten" class="mobile-link block px-3 py-2.5 rounded-lg text-base font-medium text-slate-700 hover:bg-brand-50 hover:text-brand-700">Bijeenkomsten</a>
-            <a href="#wat-wij-repareren" class="mobile-link block px-3 py-2.5 rounded-lg text-base font-medium text-slate-700 hover:bg-brand-50 hover:text-brand-700">Wat Wij Repareren</a>
-            <a href="#vrijwilligers" class="mobile-link block px-3 py-2.5 rounded-lg text-base font-medium text-slate-700 hover:bg-brand-50 hover:text-brand-700">Vrijwilliger Worden</a>
-            <a href="#contact" class="mobile-link block px-3 py-2.5 rounded-lg text-base font-medium text-slate-700 hover:bg-brand-50 hover:text-brand-700">Contact & Aanmelden</a>
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-950 border-b border-brand-900 px-4 pt-2 pb-6 space-y-2 shadow-lg">
+            <a href="#home" class="mobile-link block px-3 py-2.5 rounded-lg text-base font-medium text-brand-50 hover:bg-white/10 hover:text-white">Home</a>
+            <a href="#over-ons" class="mobile-link block px-3 py-2.5 rounded-lg text-base font-medium text-brand-50 hover:bg-white/10 hover:text-white">Over Ons</a>
+            <a href="#bijeenkomsten" class="mobile-link block px-3 py-2.5 rounded-lg text-base font-medium text-brand-50 hover:bg-white/10 hover:text-white">Bijeenkomsten</a>
+            <a href="#wat-wij-repareren" class="mobile-link block px-3 py-2.5 rounded-lg text-base font-medium text-brand-50 hover:bg-white/10 hover:text-white">Wat Wij Repareren</a>
+            <a href="#vrijwilligers" class="mobile-link block px-3 py-2.5 rounded-lg text-base font-medium text-brand-50 hover:bg-white/10 hover:text-white">Vrijwilliger Worden</a>
+            <a href="#contact" class="mobile-link block px-3 py-2.5 rounded-lg text-base font-medium text-brand-50 hover:bg-white/10 hover:text-white">Contact & Aanmelden</a>
             <div class="pt-2">
                 <a href="#bijeenkomsten" class="mobile-link w-full text-center bg-brand-700 hover:bg-brand-800 text-white block px-4 py-3 rounded-xl font-semibold shadow">
                     Eerstvolgende Bijeenkomst Bekijken
@@ -131,7 +127,7 @@
                         </h1>
 
                         <p class="text-lg sm:text-xl text-slate-200 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
-                            Heb je een kapotte waterkoker, een stofzuiger, een platenspeler of een haperende fiets? Neem het mee naar Repair Café Gorinchem! Samen repareren we je spullen, besparen we geld én verkleinen we de afvalberg.
+                            Heb je een kapotte waterkoker, een stofzuiger of een platenspeler? Neem het mee naar Repair Café Gorinchem! Samen repareren we je spullen, besparen we geld én verkleinen we de afvalberg.
                         </p>
 
                         <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2">
@@ -417,14 +413,14 @@
                     </div>
                     <h2 class="text-3xl sm:text-4xl font-bold text-slate-900">Wat kun je meenemen?</h2>
                     <p class="text-slate-600 mt-3 text-base">
-                        Heb je een kapotte <strong>waterkoker</strong>, <strong>stofzuiger</strong>, <strong>platenspeler</strong>, kleding of fiets? Probeer onze zoektool hieronder!
+                        Heb je een kapotte <strong>waterkoker</strong>, <strong>stofzuiger</strong>, <strong>platenspeler</strong> of kleding? Probeer onze zoektool hieronder!
                     </p>
                 </div>
 
                 <!-- Interactive Item Search Tool -->
                 <div class="bg-slate-50 p-6 sm:p-8 rounded-3xl shadow-sm max-w-2xl mx-auto mb-16 border border-slate-200">
                     <label for="item-search" class="block text-sm font-bold text-slate-800 mb-2">
-                        <i class="fa-solid fa-magnifying-glass text-brand-600 mr-1.5"></i> Zoek je voorwerp (bijv. 'Waterkoker', 'Stofzuiger', 'Platenspeler', 'Broek', 'Fiets'):
+                        <i class="fa-solid fa-magnifying-glass text-brand-600 mr-1.5"></i> Zoek je voorwerp (bijv. 'Waterkoker', 'Stofzuiger', 'Platenspeler', 'Broek'):
                     </label>
                     <div class="relative">
                         <input type="text" id="item-search" placeholder="Typ hier je voorwerp in..." class="w-full px-4 py-3.5 pl-11 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 text-slate-800 text-sm shadow-sm bg-white">
@@ -436,7 +432,7 @@
                 </div>
 
                 <!-- Categories Grid -->
-                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
                     <!-- Kleding & Textiel -->
                     <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all group">
@@ -462,18 +458,6 @@
                         </span>
                     </div>
 
-                    <!-- Fietsen & Transport -->
-                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all group">
-                        <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
-                            <i class="fa-solid fa-bicycle"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-2">Fietsen & Mechanica</h3>
-                        <p class="text-slate-600 text-sm mb-4">Lekke band plakken, remmen of versnelling afstellen, verlichting repareren en ketting spannen.</p>
-                        <span class="inline-flex items-center text-xs font-semibold text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200">
-                            Fietsgereedschap aanwezig
-                        </span>
-                    </div>
-
                     <!-- Meubels & Houtwerk -->
                     <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all group">
                         <div class="w-12 h-12 rounded-xl bg-orange-100 text-orange-800 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
@@ -483,18 +467,6 @@
                         <p class="text-slate-600 text-sm mb-4">Losse stoelpoten vastlijmen, houten speelgoed herstellen, kleine kastjes of klokken.</p>
                         <span class="inline-flex items-center text-xs font-semibold text-orange-800 bg-orange-50 px-2.5 py-1 rounded-md border border-orange-200">
                             Houtlijm & Klemmen
-                        </span>
-                    </div>
-
-                    <!-- Computers & IT -->
-                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all group">
-                        <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
-                            <i class="fa-solid fa-laptop"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-2">Computers & Digitaal</h3>
-                        <p class="text-slate-600 text-sm mb-4">Laptops opschonen, trage software versnellen, eenvoudige hardware-upgrades of advies.</p>
-                        <span class="inline-flex items-center text-xs font-semibold text-blue-800 bg-blue-50 px-2.5 py-1 rounded-md border border-blue-200">
-                            Software & Diagnose
                         </span>
                     </div>
 
@@ -510,6 +482,23 @@
                         </span>
                     </div>
 
+                </div>
+
+                <!-- Computers & digitaal: verwijzing naar de bibliotheek -->
+                <div class="mt-8 bg-blue-50 border border-blue-200 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center gap-5">
+                    <div class="w-12 h-12 shrink-0 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center text-2xl">
+                        <i class="fa-solid fa-laptop"></i>
+                    </div>
+                    <div class="flex-grow">
+                        <h3 class="text-lg font-bold text-slate-900 mb-1">Hulp nodig met je computer of laptop?</h3>
+                        <p class="text-slate-700 text-sm leading-relaxed">
+                            Computers en laptops repareren wij niet. Voor computerhulp kun je terecht bij <strong>de Bibliotheek in Gorinchem</strong>. Op het digitaal inloopspreekuur helpen ze je gratis en zonder afspraak met vragen over je computer, laptop, tablet, telefoon of e-reader.
+                        </p>
+                    </div>
+                    <a href="https://www.bibliotheekaanzet.nl/activiteiten/digitaal-inloopspreekuur" target="_blank" rel="noopener" class="shrink-0 inline-flex items-center justify-center gap-2 bg-blue-700 hover:bg-blue-800 text-white font-semibold px-5 py-3 rounded-xl shadow-sm transition-colors text-sm">
+                        Naar de Bibliotheek
+                        <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                    </a>
                 </div>
 
             </div>
@@ -655,7 +644,7 @@
                                     <option value="">Kies een rol...</option>
                                     <option value="Elektra / Apparaten">Reparateur (Elektra / Apparaten)</option>
                                     <option value="Textiel / Kleding">Reparateur (Textiel / Kleding)</option>
-                                    <option value="Fietsen / Hout">Reparateur (Fietsen / Hout)</option>
+                                    <option value="Hout / Meubels">Reparateur (Hout / Meubels)</option>
                                     <option value="Gastheer / Gastvrouw">Gastheer / Gastvrouw</option>
                                     <option value="Organisatie / PR">Organisatie / PR</option>
                                 </select>
@@ -715,9 +704,7 @@
                                 <option value="Algemene Vraag">Algemene Vraag / Opmerking</option>
                                 <option value="Waterkoker / Stofzuiger / Apparaat">Elektrisch Apparaat (Waterkoker, Stofzuiger, Platenspeler, etc.)</option>
                                 <option value="Kleding">Kleding / Textiel</option>
-                                <option value="Fiets">Fiets / Mechanica</option>
                                 <option value="Hout/Meubel">Hout of Meubel</option>
-                                <option value="Computer">Computer / IT</option>
                             </select>
                         </div>
 
@@ -749,11 +736,9 @@
 
                 <!-- Col 1: Branding -->
                 <div class="space-y-4 md:col-span-1">
-                    <div class="flex items-center gap-3 text-white">
-                        <div class="w-10 h-10 rounded-xl bg-brand-700 text-white flex items-center justify-center font-bold">
-                            <i class="fa-solid fa-screwdriver-wrench"></i>
-                        </div>
-                        <span class="text-lg font-bold tracking-tight">Repair Café Gorinchem</span>
+                    <div class="flex flex-col items-start gap-1.5">
+                        <img src="img/logo-repair-cafe.png" alt="Repair Café" class="h-5 w-auto">
+                        <span class="text-xs font-semibold text-slate-300 uppercase tracking-[0.3em] leading-none">Gorinchem</span>
                     </div>
                     <p class="text-xs text-slate-400 leading-relaxed">
                         Samen repareren we spullen, verminderen we de afvalberg en versterken we de gemeenschap in Gorinchem.
@@ -918,10 +903,11 @@
                 { keywords: ['stofzuiger', 'zuiger', 'kruimeldief'], category: 'Elektrische Apparaten', status: 'Ja! Stofzuigers (kabelhaspel, motorborstels, verstoppingen) zijn zeer welkom.' },
                 { keywords: ['platenspeler', 'lp', 'draaitafel', 'grammofoon'], category: 'Elektrische Apparaten / Audio', status: 'Ja! Platenspelers (nieuwe snaar, element afstellen, audio-uitgang) herstellen we regelmatig.' },
                 { keywords: ['broek', 'jas', 'kleding', 'rits', 'trui', 'jurk', 'gordijn'], category: 'Kleding & Textiel', status: 'Ja! Onze ervaren naaisters helpen met ritsen, zomen en herstelwerk.' },
-                { keywords: ['fiets', 'band', 'rem', 'ketting', 'licht'], category: 'Fietsen', status: 'Ja! Voor kleine fietsreparaties (band plakken, remmen of verlichting) kun je aanschuiven.' },
                 { keywords: ['koffiezetapparaat', 'senseo', 'koffie', 'espresso'], category: 'Elektrische Apparaten', status: 'Ja! Senseo en koffiezetapparaten zijn bij ons vaste gasten.' },
-                { keywords: ['laptop', 'pc', 'computer', 'printer'], category: 'Computers & IT', status: 'Ja! Onze IT-vrijwilligers kijken graag naar softwarestoringen en opschoning.' },
-                { keywords: ['stoel', 'tafel', 'kastje', 'hout', 'speelgoed'], category: 'Hout & Meubels', status: 'Ja! Houten voorwerpen en speelgoed lijmen en herstellen we met plezier.' }
+                { keywords: ['stoel', 'tafel', 'kastje', 'hout', 'speelgoed'], category: 'Hout & Meubels', status: 'Ja! Houten voorwerpen en speelgoed lijmen en herstellen we met plezier.' },
+                // Dingen die we niet repareren (repair: false)
+                { keywords: ['fiets', 'e-bike', 'ebike', 'mountainbike'], category: 'Fietsen', repair: false, status: 'Fietsen repareren wij helaas niet.' },
+                { keywords: ['laptop', 'computer', 'pc', 'tablet', 'ipad', 'notebook', 'macbook'], category: 'Computers & laptops', repair: false, status: 'Computers en laptops repareren wij niet. Voor computerhulp kun je gratis en zonder afspraak terecht bij het <a href="https://www.bibliotheekaanzet.nl/activiteiten/digitaal-inloopspreekuur" target="_blank" rel="noopener" class="underline font-semibold">digitaal inloopspreekuur van de Bibliotheek in Gorinchem</a>.' }
             ];
 
             if (searchInput && searchResult) {
@@ -939,7 +925,10 @@
 
                     searchResult.classList.remove('hidden');
 
-                    if (match) {
+                    if (match && match.repair === false) {
+                        searchResult.className = 'mt-4 p-4 rounded-xl bg-blue-50 border border-blue-200 text-blue-900 text-sm font-medium';
+                        searchResult.innerHTML = `<i class="fa-solid fa-circle-info text-blue-600 mr-2 text-base"></i><strong>${match.category}:</strong> ${match.status}`;
+                    } else if (match) {
                         searchResult.className = 'mt-4 p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-900 text-sm font-medium';
                         searchResult.innerHTML = `<i class="fa-solid fa-circle-check text-emerald-600 mr-2 text-base"></i><strong>${match.category}:</strong> ${match.status}`;
                     } else {
