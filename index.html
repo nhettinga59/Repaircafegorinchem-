@@ -689,6 +689,8 @@
                         <p class="text-xs text-slate-500 mb-6">Meld je vrijblijvend aan. Wij nemen snel contact met je op voor een korte kennismaking!</p>
 
                         <form id="volunteer-form" class="space-y-4">
+                            <!-- Honeypot tegen spam: onzichtbaar voor bezoekers, bots vullen het in -->
+                            <input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
                             <div>
                                 <label for="vol-name" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Naam *</label>
                                 <input type="text" id="vol-name" required placeholder="Je voor- en achternaam" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:outline-none text-sm">
@@ -725,6 +727,10 @@
                             <i class="fa-solid fa-circle-check text-brand-600 text-lg block mb-1"></i>
                             Bedankt voor je aanmelding! We nemen snel contact met je op.
                         </div>
+                        <div id="volunteer-error" class="hidden mt-4 p-4 bg-red-50 border border-red-200 text-red-900 rounded-xl text-center text-sm font-medium" role="alert">
+                            <i class="fa-solid fa-triangle-exclamation text-red-600 text-lg block mb-1"></i>
+                            Er ging iets mis bij het versturen. Probeer het later nog eens, of mail ons direct via <a href="mailto:repaircafegorinchem@outlook.com" class="underline font-semibold">repaircafegorinchem@outlook.com</a>.
+                        </div>
                     </div>
 
                 </div>
@@ -748,6 +754,8 @@
 
                 <div class="max-w-2xl mx-auto bg-brand-50 p-6 sm:p-10 rounded-3xl border border-slate-200 shadow-sm">
                     <form id="contact-form" class="space-y-5">
+                        <!-- Honeypot tegen spam: onzichtbaar voor bezoekers, bots vullen het in -->
+                        <input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
                         <div class="grid sm:grid-cols-2 gap-5">
                             <div>
                                 <label for="contact-name" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Naam *</label>
@@ -784,6 +792,10 @@
                         <i class="fa-solid fa-circle-check text-brand-600 text-lg block mb-1"></i>
                         Bedankt voor je bericht! We antwoorden zo snel mogelijk via e-mail.
                     </div>
+                    <div id="contact-error" class="hidden mt-6 p-4 bg-red-50 border border-red-200 text-red-900 rounded-xl text-center text-sm font-medium" role="alert">
+                            <i class="fa-solid fa-triangle-exclamation text-red-600 text-lg block mb-1"></i>
+                            Er ging iets mis bij het versturen. Probeer het later nog eens, of mail ons direct via <a href="mailto:repaircafegorinchem@outlook.com" class="underline font-semibold">repaircafegorinchem@outlook.com</a>.
+                        </div>
                 </div>
 
             </div>
@@ -1070,25 +1082,83 @@
                 });
             }
 
-            // Volunteer Form Submission Handling
+            // Formulieren versturen via FormSubmit (gratis, zonder account): inzendingen komen binnen op het Outlook-adres
+            const FORM_ENDPOINT = 'https://formsubmit.co/ajax/repaircafegorinchem@outlook.com';
+
+            async function sendForm(form, data, successEl, errorEl) {
+                const btn = form.querySelector('button[type="submit"]');
+                const originalLabel = btn.innerHTML;
+                successEl.classList.add('hidden');
+                errorEl.classList.add('hidden');
+
+                // Honeypot ingevuld = spambot: doe alsof het gelukt is
+                if (form.querySelector('input[name="_honey"]').value) {
+                    form.reset();
+                    successEl.classList.remove('hidden');
+                    return;
+                }
+
+                btn.disabled = true;
+                btn.classList.add('opacity-70', 'cursor-wait');
+                btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Bezig met versturen...';
+                try {
+                    const res = await fetch(FORM_ENDPOINT, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                        body: JSON.stringify({ _template: 'table', _captcha: 'false', ...data })
+                    });
+                    const json = await res.json().catch(() => ({}));
+                    if (!res.ok || String(json.success) !== 'true') {
+                        throw new Error(json.message || `HTTP ${res.status}`);
+                    }
+                    form.reset();
+                    successEl.classList.remove('hidden');
+                } catch (err) {
+                    console.error('Formulier versturen mislukt:', err);
+                    errorEl.classList.remove('hidden');
+                } finally {
+                    btn.disabled = false;
+                    btn.classList.remove('opacity-70', 'cursor-wait');
+                    btn.innerHTML = originalLabel;
+                }
+            }
+
+            // Vrijwilligersformulier
             const volForm = document.getElementById('volunteer-form');
-            const volSuccess = document.getElementById('volunteer-success');
             if (volForm) {
                 volForm.addEventListener('submit', function(e) {
                     e.preventDefault();
-                    volForm.reset();
-                    if (volSuccess) volSuccess.classList.remove('hidden');
+                    const name = document.getElementById('vol-name').value.trim();
+                    const email = document.getElementById('vol-email').value.trim();
+                    sendForm(volForm, {
+                        _subject: `Nieuwe vrijwilliger: ${name}`,
+                        _replyto: email,
+                        'Formulier': 'Aanmelden als vrijwilliger',
+                        'Naam': name,
+                        'E-mailadres': email,
+                        'Rol': document.getElementById('vol-role').value,
+                        'Toelichting / ervaring': document.getElementById('vol-msg').value.trim()
+                    }, document.getElementById('volunteer-success'), document.getElementById('volunteer-error'));
                 });
             }
 
-            // Contact Form Submission Handling
+            // Contactformulier
             const contactForm = document.getElementById('contact-form');
-            const contactSuccess = document.getElementById('contact-success');
             if (contactForm) {
                 contactForm.addEventListener('submit', function(e) {
                     e.preventDefault();
-                    contactForm.reset();
-                    if (contactSuccess) contactSuccess.classList.remove('hidden');
+                    const name = document.getElementById('contact-name').value.trim();
+                    const email = document.getElementById('contact-email').value.trim();
+                    const category = document.getElementById('contact-category').value;
+                    sendForm(contactForm, {
+                        _subject: `Contactformulier: ${category} (${name})`,
+                        _replyto: email,
+                        'Formulier': 'Contact',
+                        'Naam': name,
+                        'E-mailadres': email,
+                        'Onderwerp': category,
+                        'Bericht': document.getElementById('contact-msg').value.trim()
+                    }, document.getElementById('contact-success'), document.getElementById('contact-error'));
                 });
             }
         });

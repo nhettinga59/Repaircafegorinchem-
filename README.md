@@ -9,12 +9,12 @@ Eén statische pagina: [`index.html`](index.html).
 - **Styling:** Tailwind CSS via CDN, met eigen kleuren `brand` (groen) en `amberWood` (amber)
 - **Iconen:** Font Awesome 6
 - **Lettertype:** Roboto (Google Fonts)
-- **JavaScript:** berekent automatisch de eerstvolgende drie bijeenkomsten (1e zaterdag van de maand), plus het mobiele menu, de zoektool "Wat kun je meenemen?" en de formulieren
+- **JavaScript:** berekent automatisch de eerstvolgende drie bijeenkomsten (1e zaterdag van de maand), plus het mobiele menu, de zoektool "Wat kun je meenemen?", het event-schema voor Google en het versturen van de formulieren
 
 ## Lokaal bekijken
 
 Open `index.html` in je browser. Er is geen build-stap nodig.
 
-## Nog te doen
+## Formulieren
 
-- De formulieren (vrijwilliger en contact) versturen nog niets. Ze tonen alleen een bedankmelding en moeten nog aan een dienst (bijv. Formspree of Netlify Forms) gekoppeld worden.
+Het vrijwilligers- en contactformulier versturen via [FormSubmit](https://formsubmit.co) (gratis, geen account) naar `repaircafegorinchem@outlook.com`. Bij de allereerste inzending stuurt FormSubmit een activatiemail naar dat adres; pas na het klikken op "Activate Form" komen inzendingen binnen. Een onzichtbaar honeypot-veld (`_honey`) houdt simpele spambots tegen.
