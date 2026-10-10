@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="nl" class="motion-safe:scroll-smooth scroll-pt-32 lg:scroll-pt-40">
+<html lang="nl" class="motion-safe:scroll-smooth scroll-pt-24 scroll-pb-28 sm:scroll-pb-36 lg:scroll-pb-56">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -126,9 +126,9 @@
     <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60] focus:bg-white focus:text-brand-900 focus:px-4 focus:py-2 focus:rounded-lg focus:font-semibold focus:shadow-lg">Direct naar de inhoud</a>
 
     <!-- HEADER & NAVIGATION -->
-    <header class="sticky top-0 z-50 bg-brand-700/95 backdrop-blur-md shadow-sm transition-all duration-300">
+    <header class="sticky top-0 z-50 bg-brand-700/95 backdrop-blur-md border-b border-brand-800 shadow-sm transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16 lg:h-20 items-center">
+            <div class="flex justify-between h-20 items-center">
 
                 <!-- Logo -->
                 <a href="#home" class="flex flex-col items-start gap-1.5 group" aria-label="Repair Café Gorinchem - naar boven">
@@ -178,20 +178,17 @@
                 </a>
             </div>
         </nav>
-
-        <!-- Skyline van Gorinchem op de menubalk (blijft staan bij scrollen); negen monumenten uit de Gorkumse huisjesserie, img/skyline-gorinchem.svg -->
-        <div class="flex justify-center items-end h-10 sm:h-12 lg:h-14 border-b-4 border-amberWood-500 overflow-hidden" aria-hidden="true">
-            <img src="img/skyline-gorinchem.svg?v=7" alt="" width="1600" height="224" class="h-full w-auto max-w-none select-none pointer-events-none">
-        </div>
     </header>
 
     <main id="main" class="flex-grow">
         <!-- HERO SECTION -->
-        <section id="home" class="relative bg-gradient-to-br from-brand-900 via-brand-800 to-brand-950 text-white overflow-hidden py-16 md:py-24">
+        <section id="home" class="relative bg-gradient-to-br from-brand-900 via-brand-800 to-brand-950 text-white pt-16 md:pt-24">
             <!-- Decorative Background Pattern Elements -->
-            <div class="absolute inset-0 opacity-10 wood-texture pointer-events-none"></div>
-            <div class="absolute -top-24 -right-24 w-96 h-96 bg-brand-500 rounded-full filter blur-3xl opacity-20 pointer-events-none"></div>
-            <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-amberWood-500 rounded-full filter blur-3xl opacity-20 pointer-events-none"></div>
+            <div class="absolute inset-0 overflow-hidden pointer-events-none">
+                <div class="absolute inset-0 opacity-10 wood-texture"></div>
+                <div class="absolute -top-24 -right-24 w-96 h-96 bg-brand-500 rounded-full filter blur-3xl opacity-20"></div>
+                <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-amberWood-500 rounded-full filter blur-3xl opacity-20"></div>
+            </div>
 
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="grid lg:grid-cols-12 gap-12 items-center">
@@ -292,6 +289,12 @@
                     </div>
 
                 </div>
+            </div>
+
+            <!-- Skyline van Gorinchem (negen monumenten uit de Gorkumse huisjesserie, img/skyline-gorinchem.svg):
+                 plakt onderaan het scherm tot hij bij het scrollen op zijn eigen plek boven de oranje balk staat -->
+            <div class="sticky bottom-0 z-20 mt-10 md:mt-14 pt-6 pointer-events-none bg-gradient-to-t from-brand-950 via-brand-950/80 to-transparent" aria-hidden="true">
+                <img src="img/skyline-gorinchem.svg?v=8" alt="" width="1600" height="224" class="block w-full h-24 sm:h-32 lg:h-auto object-cover object-left-bottom select-none">
             </div>
         </section>
 
