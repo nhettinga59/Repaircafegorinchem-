@@ -156,8 +156,9 @@
 
                 <!-- Mobile menu button -->
                 <div class="lg:hidden flex items-center">
-                    <button id="mobile-menu-btn" type="button" class="text-brand-50 hover:text-white p-2 rounded-lg" aria-label="Menu openen" aria-expanded="false" aria-controls="mobile-menu">
+                    <button id="mobile-menu-btn" type="button" class="flex flex-col items-center text-brand-50 hover:text-white px-2 py-1 rounded-lg" aria-label="Menu openen" aria-expanded="false" aria-controls="mobile-menu">
                         <i class="fa-solid fa-bars text-2xl" aria-hidden="true" id="menu-icon"></i>
+                        <span id="menu-label" class="block text-[11px] font-semibold uppercase tracking-wider leading-none mt-1" aria-hidden="true">Menu</span>
                     </button>
                 </div>
             </div>
@@ -326,8 +327,8 @@
 
                         <!-- Highlights list -->
                         <div class="grid sm:grid-cols-2 gap-4 pt-4">
-                            <div class="flex items-start gap-3">
-                                <div class="w-8 h-8 rounded-lg bg-brand-100 text-brand-700 flex items-center justify-center shrink-0 mt-1">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-lg bg-brand-100 text-brand-700 flex items-center justify-center shrink-0">
                                     <i class="fa-solid fa-recycle" aria-hidden="true"></i>
                                 </div>
                                 <div>
@@ -336,8 +337,8 @@
                                 </div>
                             </div>
 
-                            <div class="flex items-start gap-3">
-                                <div class="w-8 h-8 rounded-lg bg-amberWood-100 text-amberWood-600 flex items-center justify-center shrink-0 mt-1">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-lg bg-amberWood-100 text-amberWood-600 flex items-center justify-center shrink-0">
                                     <i class="fa-solid fa-piggy-bank" aria-hidden="true"></i>
                                 </div>
                                 <div>
@@ -346,8 +347,8 @@
                                 </div>
                             </div>
 
-                            <div class="flex items-start gap-3">
-                                <div class="w-8 h-8 rounded-lg bg-brand-100 text-brand-700 flex items-center justify-center shrink-0 mt-1">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-lg bg-brand-100 text-brand-700 flex items-center justify-center shrink-0">
                                     <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
                                 </div>
                                 <div>
@@ -356,8 +357,8 @@
                                 </div>
                             </div>
 
-                            <div class="flex items-start gap-3">
-                                <div class="w-8 h-8 rounded-lg bg-brand-100 text-brand-700 flex items-center justify-center shrink-0 mt-1">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-lg bg-brand-100 text-brand-700 flex items-center justify-center shrink-0">
                                     <i class="fa-solid fa-heart" aria-hidden="true"></i>
                                 </div>
                                 <div>
@@ -419,6 +420,7 @@
                         <h3 class="text-xl font-bold text-slate-900 mb-1" id="agenda-card-1">Zaterdag 7 november 2026</h3>
                         <p class="text-slate-600 text-sm"><i class="fas fa-map-marker-alt text-brand-600 mr-1.5" aria-hidden="true"></i> Buurtkamer Stalkaarsen</p>
                         <p class="text-xs text-slate-500 mt-3 pt-3 border-t border-slate-100"><i class="fas fa-door-open mr-1 text-amberWood-600" aria-hidden="true"></i> Inloop & inschrijving tot 11:45 uur</p>
+                        <div class="agenda-cal mt-4" data-index="0"></div>
                     </div>
 
                     <!-- Card 2 -->
@@ -430,6 +432,7 @@
                         <h3 class="text-xl font-bold text-slate-900 mb-1" id="agenda-card-2">Zaterdag 5 december 2026</h3>
                         <p class="text-slate-600 text-sm"><i class="fas fa-map-marker-alt text-brand-600 mr-1.5" aria-hidden="true"></i> Buurtkamer Stalkaarsen</p>
                         <p class="text-xs text-slate-500 mt-3 pt-3 border-t border-slate-100"><i class="fas fa-door-open mr-1 text-amberWood-600" aria-hidden="true"></i> Inloop & inschrijving tot 11:45 uur</p>
+                        <div class="agenda-cal mt-4" data-index="1"></div>
                     </div>
 
                     <!-- Card 3 -->
@@ -441,8 +444,18 @@
                         <h3 class="text-xl font-bold text-slate-900 mb-1" id="agenda-card-3">Zaterdag 2 januari 2027</h3>
                         <p class="text-slate-600 text-sm"><i class="fas fa-map-marker-alt text-brand-600 mr-1.5" aria-hidden="true"></i> Buurtkamer Stalkaarsen</p>
                         <p class="text-xs text-slate-500 mt-3 pt-3 border-t border-slate-100"><i class="fas fa-door-open mr-1 text-amberWood-600" aria-hidden="true"></i> Inloop & inschrijving tot 11:45 uur</p>
+                        <div class="agenda-cal mt-4" data-index="2"></div>
                     </div>
                 </div>
+
+                <!-- Abonneren op alle bijeenkomsten (bijeenkomsten.ics: elke 1e zaterdag van de maand) -->
+                <p class="text-center text-sm text-slate-600 -mt-6 mb-12">
+                    <i class="fa-regular fa-calendar-check text-brand-600 mr-1" aria-hidden="true"></i>
+                    Elke maand automatisch in je agenda? Abonneer je via
+                    <a href="https://calendar.google.com/calendar/r?cid=webcal%3A%2F%2Frepaircafegorinchem.nl%2Fbijeenkomsten.ics" target="_blank" rel="noopener" class="font-semibold text-brand-700 underline hover:no-underline">Google Agenda<span class="sr-only"> (opent in een nieuw venster)</span></a>
+                    of
+                    <a href="webcal://repaircafegorinchem.nl/bijeenkomsten.ics" class="font-semibold text-brand-700 underline hover:no-underline">Apple Agenda / Outlook</a>.
+                </p>
 
                 <!-- Location details + Google Maps block -->
                 <div class="bg-brand-950 text-white rounded-3xl p-6 sm:p-10 shadow-xl grid lg:grid-cols-12 gap-8 items-center">
@@ -958,6 +971,54 @@
             document.head.appendChild(script);
         }
 
+        // "Zet in je agenda": Google Agenda-link en een .ics-bestand (Apple Agenda / Outlook) per bijeenkomst
+        function fillCalendarLinks(dates) {
+            const pad = n => String(n).padStart(2, '0');
+            const title = 'Repair Café Gorinchem';
+            const location = 'Buurtkamer Stalkaarsen, Dr. Hiemstralaan 77, 4205 KK Gorinchem';
+            const details = 'Neem je kapotte spullen mee en repareer ze samen met onze vrijwilligers. Inloop en inschrijving tot 11:45 uur. https://repaircafegorinchem.nl';
+            document.querySelectorAll('.agenda-cal').forEach(el => {
+                const d = dates[Number(el.dataset.index)];
+                if (!d) return;
+                // Nederlandse tijd: zomertijd (UTC+2) van april t/m oktober, anders wintertijd (UTC+1)
+                const utcStart = (d.getMonth() >= 3 && d.getMonth() <= 9) ? 8 : 9;
+                const ymd = `${d.getFullYear()}${pad(d.getMonth() + 1)}${pad(d.getDate())}`;
+                const start = `${ymd}T${pad(utcStart)}0000Z`;
+                const end = `${ymd}T${pad(utcStart + 2)}0000Z`;
+                const google = 'https://calendar.google.com/calendar/render?action=TEMPLATE'
+                    + '&text=' + encodeURIComponent(title)
+                    + '&dates=' + start + '/' + end
+                    + '&details=' + encodeURIComponent(details)
+                    + '&location=' + encodeURIComponent(location);
+                const ics = [
+                    'BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Repair Cafe Gorinchem//NL', 'CALSCALE:GREGORIAN', 'METHOD:PUBLISH',
+                    'BEGIN:VEVENT',
+                    `UID:bijeenkomst-${ymd}@repaircafegorinchem.nl`,
+                    'DTSTAMP:' + new Date().toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z',
+                    `DTSTART:${start}`, `DTEND:${end}`,
+                    `SUMMARY:${title}`,
+                    'LOCATION:' + location.replace(/,/g, '\\,'),
+                    'DESCRIPTION:' + details.replace(/,/g, '\\,'),
+                    'URL:https://repaircafegorinchem.nl/#bijeenkomsten',
+                    'END:VEVENT', 'END:VCALENDAR'
+                ].join('\r\n');
+                const icsUrl = URL.createObjectURL(new Blob([ics], { type: 'text/calendar;charset=utf-8' }));
+                const linkClass = 'flex items-center gap-2 px-3 py-2 rounded-lg text-slate-700 hover:bg-brand-50 hover:text-brand-800';
+                el.innerHTML = `
+                    <details class="group">
+                        <summary class="list-none [&::-webkit-details-marker]:hidden inline-flex items-center gap-2 cursor-pointer select-none text-sm font-semibold text-brand-700 bg-brand-50 hover:bg-brand-100 border border-brand-200 rounded-lg px-3 py-2">
+                            <i class="fa-regular fa-calendar-plus" aria-hidden="true"></i>
+                            Zet in je agenda
+                            <i class="fa-solid fa-chevron-down text-xs transition-transform group-open:rotate-180" aria-hidden="true"></i>
+                        </summary>
+                        <div class="mt-2 flex flex-col text-sm border border-slate-200 rounded-xl p-1 bg-white">
+                            <a href="${google}" target="_blank" rel="noopener" class="${linkClass}"><i class="fa-brands fa-google w-4 text-center" aria-hidden="true"></i> Google Agenda<span class="sr-only"> (opent in een nieuw venster)</span></a>
+                            <a href="${icsUrl}" download="repair-cafe-gorinchem-${ymd}.ics" class="${linkClass}"><i class="fa-brands fa-apple w-4 text-center" aria-hidden="true"></i> Apple Agenda / Outlook</a>
+                        </div>
+                    </details>`;
+            });
+        }
+
         // Automatisch berekenen van de eerstvolgende 3 bijeenkomsten op de 1e zaterdag van de maand
         function updateUpcomingDates() {
             const today = new Date();
@@ -1024,6 +1085,8 @@
 
             const card3 = document.getElementById('agenda-card-3');
             if (card3) card3.textContent = date3Str;
+
+            fillCalendarLinks([nextSat, sat2, sat3]);
         }
 
         document.addEventListener('DOMContentLoaded', function() {
@@ -1041,6 +1104,8 @@
                     mobileBtn.setAttribute('aria-expanded', String(open));
                     mobileBtn.setAttribute('aria-label', open ? 'Menu sluiten' : 'Menu openen');
                     menuIcon.className = open ? 'fa-solid fa-xmark text-2xl' : 'fa-solid fa-bars text-2xl';
+                    const menuLabel = document.getElementById('menu-label');
+                    if (menuLabel) menuLabel.textContent = open ? 'Sluiten' : 'Menu';
                 };
 
                 mobileBtn.addEventListener('click', function() {
