@@ -1,7 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -4 1600 224" preserveAspectRatio="xMidYMax slice">
-<!-- Skyline van Gorinchem (eigen tekening naar de Gorkumse monumentenhuisjes), hoogtes in verhouding tot de Grote Toren (67 m): vestingwal met korenmolen en Dalempoort, watertoren, het Tolhuis, toren van de Grote Kerk, Gorcums Museum, het Doelenhuys, Dit is in Bethlehem, het brugwachtershuis en de Merwedebrug -->
+<!-- Skyline van Gorinchem (eigen tekening naar de Gorkumse monumentenhuisjes), hoogtes in verhouding tot de Grote Toren (67 m): korenmolen, Dalempoort, watertoren, het Tolhuis, toren van de Grote Kerk, Gorcums Museum, het Doelenhuys, Dit is in Bethlehem, het brugwachtershuis en de Merwedebrug -->
 <g fill="#ed6a42" stroke="#ed6a42" stroke-width="0" stroke-linecap="round" fill-rule="evenodd">
-<path d="M0 206 L0 194 L202.9 194 L214.9 206Z"/>
 <path d="M866 172h734v6h-734Z"/>
 <path d="M872.5 178h5v28h-5Z"/>
 <path d="M898.5 178h5v28h-5Z"/>
