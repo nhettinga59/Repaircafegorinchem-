@@ -532,37 +532,6 @@
                     <div aria-live="polite" aria-atomic="true">
                         <div id="search-result" class="mt-4 p-4 rounded-xl hidden text-sm font-medium transition-all"></div>
                     </div>
-
-                    <!-- Apparaten die je in elk geval mag meenemen (staan ook in de zoektool) -->
-                    <p class="mt-6 text-sm font-bold text-slate-800">Deze apparaten kun je in elk geval meenemen:</p>
-                    <ul class="mt-3 flex flex-wrap gap-2 text-sm">
-                        <li class="px-3 py-1 rounded-full bg-white border border-brand-200 text-slate-700">Afstandsbediening</li>
-                        <li class="px-3 py-1 rounded-full bg-white border border-brand-200 text-slate-700">Airfryer</li>
-                        <li class="px-3 py-1 rounded-full bg-white border border-brand-200 text-slate-700">Babyfoon</li>
-                        <li class="px-3 py-1 rounded-full bg-white border border-brand-200 text-slate-700">Broodrooster</li>
-                        <li class="px-3 py-1 rounded-full bg-white border border-brand-200 text-slate-700">Blender</li>
-                        <li class="px-3 py-1 rounded-full bg-white border border-brand-200 text-slate-700">Dvd-speler</li>
-                        <li class="px-3 py-1 rounded-full bg-white border border-brand-200 text-slate-700">Elektrische tandenborstel</li>
-                        <li class="px-3 py-1 rounded-full bg-white border border-brand-200 text-slate-700">Espressomachine</li>
-                        <li class="px-3 py-1 rounded-full bg-white border border-brand-200 text-slate-700">Frituurpan (leeg!)</li>
-                        <li class="px-3 py-1 rounded-full bg-white border border-brand-200 text-slate-700">Haardroger</li>
-                        <li class="px-3 py-1 rounded-full bg-white border border-brand-200 text-slate-700">Ionisator</li>
-                        <li class="px-3 py-1 rounded-full bg-white border border-brand-200 text-slate-700">Koffiemolen</li>
-                        <li class="px-3 py-1 rounded-full bg-white border border-brand-200 text-slate-700">Koffiezetapparaat</li>
-                        <li class="px-3 py-1 rounded-full bg-white border border-brand-200 text-slate-700">Kruimeldief</li>
-                        <li class="px-3 py-1 rounded-full bg-white border border-brand-200 text-slate-700">Mixer</li>
-                        <li class="px-3 py-1 rounded-full bg-white border border-brand-200 text-slate-700">Melkklopper</li>
-                        <li class="px-3 py-1 rounded-full bg-white border border-brand-200 text-slate-700">Scheerapparaat</li>
-                        <li class="px-3 py-1 rounded-full bg-white border border-brand-200 text-slate-700">Staafmixer</li>
-                        <li class="px-3 py-1 rounded-full bg-white border border-brand-200 text-slate-700">Stofzuiger</li>
-                        <li class="px-3 py-1 rounded-full bg-white border border-brand-200 text-slate-700">Stoomkoker</li>
-                        <li class="px-3 py-1 rounded-full bg-white border border-brand-200 text-slate-700">Strijkijzer</li>
-                        <li class="px-3 py-1 rounded-full bg-white border border-brand-200 text-slate-700">Tosti-ijzer</li>
-                        <li class="px-3 py-1 rounded-full bg-white border border-brand-200 text-slate-700">Tondeuse</li>
-                        <li class="px-3 py-1 rounded-full bg-white border border-brand-200 text-slate-700">Ventilator</li>
-                        <li class="px-3 py-1 rounded-full bg-white border border-brand-200 text-slate-700">Videorecorder</li>
-                        <li class="px-3 py-1 rounded-full bg-white border border-brand-200 text-slate-700">Waterkoker</li>
-                    </ul>
                 </div>
 
                 <!-- Categories Grid -->
@@ -1166,7 +1135,7 @@
             const searchResult = document.getElementById('search-result');
 
             const repairDatabase = [
-                // Apparaten die je in elk geval mag meenemen (ook als lijstje zichtbaar op de pagina)
+                // Apparaten die je in elk geval mag meenemen
                 { keywords: ['afstandsbediening'], category: 'Afstandsbediening', status: 'Ja! Neem ook het snoer, de oplader of de batterijen mee.' },
                 { keywords: ['airfryer'], category: 'Airfryer', status: 'Ja! Neem ook het snoer, de oplader of de batterijen mee.' },
                 { keywords: ['babyfoon'], category: 'Babyfoon', status: 'Ja! Neem ook het snoer, de oplader of de batterijen mee.' },
